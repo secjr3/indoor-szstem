@@ -1,0 +1,91 @@
+/*colors*/
+:root {
+
+    /* BRAND */
+    --primary: #5CAC5C;
+
+    /* BACKGROUND */
+    --bg-color: #dfdfdf;
+    --bg-primary: #8ac28a;
+
+    /* TEXT */
+    --text-color: #111111;
+}
+
+@media (max-width:450px) {
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+
+    .header-nav-bar {
+        display: flex;
+        flex-flow: row;
+        justify-content: left;
+        align-items: start;
+        height: 40px;
+        padding: 0px 0px 0px 10px;
+        gap: 10%;
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--primary);
+        flex: 50%;
+        transform: translateY(-15px);
+    }
+
+    .menu-btn {
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        position: relative;
+        z-index: 3;
+        flex: 30%;
+    }
+
+    .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--bg-primary);
+        width: 60%;
+        max-width: 150px;
+        height: 60vh;
+    }
+    
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom-right-radius: 10px;
+        z-index: 2;
+    }
+
+
+    .menu-h-btn {
+        height: 30px;
+    }
+
+    .menu-linked-a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+    .menu-linked-a:hover{
+        transform: translateY(-1px);
+    }
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,63 @@
+.menu-btn {
+    background: none;
+    border: none;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.08);
+}
+
+.menu-btn:active {
+    transform: scale(0.92);
+}
+
+.menu-linked-a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.menu {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    background-color: var(--bg-primary);
+
+    width: 60%;
+    max-width: 150px;
+    height: 60vh;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(-20px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s;
+}
+
+.menu {
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(-20px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s;
+}
+
+.menu.active {
+    gap: 5%;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
