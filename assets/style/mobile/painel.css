@@ -1,5 +1,125 @@
 @import url(main.css);
 
-.painel-cards{
+/*common*/
+.card {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.arrows {
+    display: flex;
+    flex-flow: column;
+    gap: 2px;
+}
+
+.arrow {
+    width: 10px;
+    height: 3px;
+    background-color: var(--text-muted);
+}
+
+.-one {
+    transform: rotate(45deg);
+}
+
+.-two {
+    transform: rotate(135deg);
+}
+
+@media (max-width:450px) {
+    .painel {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .painel-ttl {
+        font-weight: bolder;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: end;
+        border-bottom: 2px solid var(--text-muted);
+        height: 25px;
+        padding: 2px 20px;
+        width: 75%;
+        gap: 5px;
+    }
+
+
+
+
+    .painel-cards {
+        display: flex;
+        background-color: var(--card-bg);
+        padding: 20px 10px;
+        height: 150px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        width: 80%;
+        max-width: 400px;
+        gap: 10px;
+    }
+
+    .painel-screen-card {
+        background-color: var(--bg-primary);
+        height: 150px;
+        min-width: 80%;
+        flex: 80%;
+    }
+
+}
+
+
+/*button*/
+.add-screen-card {
+    position: relative;
+    top: 0%;
+    left: 18%;
     
+    width: 70%;
+    max-width: 200px;
+    height: 120px;
+
+    background: #F2F3F2;
+    border: 1px dashed #D2D5D2;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addScreenBtn {
+    border: none;
+    background: transparent;
+
+    color: #666;
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.addScreenBtn span {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.addScreenBtn:hover {
+    color: #5CAC5C;
+}
+
+.addScreenBtn:active {
+    transform: scale(0.96);
 }
