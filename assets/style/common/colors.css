@@ -1,5 +1,4 @@
 :root {
-
     /* BRAND */
     --primary: #5CAC5C;
 
@@ -12,8 +11,6 @@
     --text-color: #111111;
     --text-color-inverted: #fdfdfd86;
 
-    /* BACKGROUND */
-
     /* SURFACES */
     --surface: #FFFFFF;
     --card-bg: #c7c4c450;
@@ -24,7 +21,7 @@
 
     /* BORDER */
     --border: #E2E5E2;
-
-    --fail:#ff0000a6;
-    --success:var(--primary);
+    --border-strong: #9da09d;
+    --fail: #ff0000a6;
+    --success: var(--primary);
 }

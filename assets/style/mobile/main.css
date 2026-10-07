@@ -1,80 +1,128 @@
 @import url(../common/colors.css);
 
-@media (max-width:450px) {
-    body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-    }
+* {
+    box-sizing: border-box;
+}
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
 
-    .header-nav-bar {
-        display: flex;
-        flex-flow: row;
-        justify-content: left;
-        align-items: start;
-        height: 40px;
-        padding: 0px 0px 0px 10px;
-        gap: 10%;
-    }
+.header-nav-bar {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 48px;
+    height: auto;
+    padding: 10px 16px;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.header-nav {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-tittle {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary);
+    margin: 0;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    z-index: 55;
+    padding: 4px 8px;
+    color: var(--text-color);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-primary);
+    width: 70%;
+    max-width: 240px;
+    height: 100vh;
+    padding: 24px 12px;
+    box-sizing: border-box;
+}
+
+.menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.menu-h-btn {
+    height: 36px;
+    width: 100%;
+}
+
+.menu-linked-a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 16px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.2s, color 0.2s;
+}
+
+.menu-linked-a:hover {
+    transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Telas muito pequenas (< 270px) */
+@media (max-width: 270px) {
     h1 {
-        text-align: center;
-        color: var(--primary);
-        flex: 50%;
-        transform: translateY(-15px);
+        font-size: 18px;
     }
-    @media (max-width:270px) {h1{font-size: 25px;}}
-
-    .menu-btn {
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        position: relative;
-        z-index: 3;
-        flex: 30%;
+    .header-nav-bar {
+        padding: 4px;
+        gap: 6px;
     }
+}
 
-    .menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: var(--bg-primary);
-        width: 60%;
-        max-width: 150px;
-        height: 60vh;
+/* Telas médias e grandes (Tablets e Desktops) */
+@media (min-width: 768px) {
+    .header-nav-bar {
+        padding: 14px 24px;
     }
     
-    .menu.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-bottom-right-radius: 10px;
-        z-index: 2;
+    .menu {
+        max-width: 260px;
     }
-
-
-    .menu-h-btn {
-        height: 30px;
-    }
-
-    .menu-linked-a {
-        text-decoration: none;
-        color: var(--text-color);
-    }
-    .menu-linked-a:hover{
-        transform: translateY(-1px);
-    }
-
-
-
-
-
-
-
-
-
 }

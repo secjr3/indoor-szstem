@@ -1,6 +1,6 @@
 @import url(main.css);
 
-/*common*/
+/* common */
 .card {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -29,129 +29,178 @@
     transform: rotate(135deg);
 }
 
-@media (max-width:450px) {
-    .painel {
-        margin-top: 10px;
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-    }
+/* Painel Principal */
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 16px 40px;
+    box-sizing: border-box;
+}
 
-    .painel-ttl {
-        font-weight: bolder;
-        display: flex;
-        flex-flow: row;
-        align-items: center;
-        justify-content: end;
-        border-bottom: 2px solid var(--text-muted);
-        height: 25px;
-        padding: 2px 20px;
-        width: 75%;
-        gap: 5px;
-    }
+.painel {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 960px;
+}
 
+.painel-ttl {
+    font-weight: bolder;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 2px solid var(--text-muted);
+    min-height: 35px;
+    padding: 4px 16px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    gap: 8px;
+}
 
+.painel-ttl p {
+    margin: 0;
+    font-size: clamp(20px, 3vw, 25px);
+    color: var(--text-color);
+}
 
+.painel-cards {
+    display: flex;
+    background-color: var(--card-bg);
+    padding: 20px 14px;
+    min-height: 160px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    gap: 12px;
+    border-radius: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
 
-    .painel-cards {
-        display: flex;
-        background-color: var(--card-bg);
-        padding: 20px 10px;
-        height: 150px;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        width: 80%;
-        max-width: 400px;
-        gap: 10px;
-    }
+.painel-cards::-webkit-scrollbar {
+    height: 6px;
+}
 
-    .painel-screen-card {
-        background-color: var(--bg-primary);
-        height: 150px;
-        min-width: 80%;
-        flex: 80%;
-    }
-/*overlay from bottom*/
-    #openPanelBtn{
-        background-color: transparent;
-        border: none;
-    }
-    .overlay {
-        position: fixed;
-        inset: 0;
+.painel-cards::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+}
 
-        background: rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(5px);
-
-        opacity: 0;
-        visibility: hidden;
-
-        transition: opacity 0.3s ease;
-    }
-
-    .bottom-panel {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 70vh;
-        background: var(--bg-color);
-        border-radius: 20px 20px 0 0;
-        transform: translateY(100%);
-        transition: transform 0.35s ease;
-        z-index: 10;
-    }
-
-    .panel-handle {
-        width: 40px;
-        height: 4px;
-
-        margin: 10px auto;
-
-        background: var(--border-strong);
-        border-radius: 10px;
-    }
-
-    .overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .bottom-panel.active {
-        transform: translateY(0);
-    }
-/*end overlay from bottom*/
-
-
-/*add-screen-button*/
-.add-screen-card {
-    width: 70%;
-    max-width: 200px;
-    height: 120px;
-
-    background: #F2F3F2;
-    border: 1px dashed #D2D5D2;
+.painel-screen-card {
+    background-color: var(--bg-primary);
+    height: 140px;
+    min-width: 220px;
+    flex: 0 0 220px;
     border-radius: 10px;
+    padding: 14px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+/* overlay from bottom */
+#openPanelBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#openPanelBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.bottom-panel {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 85vh;
+    height: auto;
+    min-height: 380px;
+    background: var(--bg-color);
+    border-radius: 20px 20px 0 0;
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 105;
+    padding-bottom: 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.panel-handle {
+    width: 44px;
+    height: 5px;
+    margin: 12px auto;
+    background: var(--border-strong, #9da09d);
+    border-radius: 10px;
+    cursor: grab;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bottom-panel.active {
+    transform: translateY(0);
+}
+
+/* add-screen-button */
+.add-screen-card {
+    width: 100%;
+    max-width: 220px;
+    height: 120px;
+    background: #F2F3F2;
+    border: 1.5px dashed #B8BCB8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.add-screen-card:hover {
+    border-color: var(--primary);
+    background-color: #f7faf7;
 }
 
 .addScreenBtn {
     border: none;
     background: transparent;
-
-    color: #666;
-    font-size: 14px;
-
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 7px;
-
+    gap: 8px;
     cursor: pointer;
-
     transition: 0.2s ease;
 }
 
@@ -161,109 +210,206 @@
 }
 
 .addScreenBtn:hover {
-    color: #5CAC5C;
+    color: var(--primary);
 }
 
 .addScreenBtn:active {
     transform: scale(0.96);
 }
-}
 
-/*adiocionar conteudoao panel*/
-
-.panel-content{
+/* adicionar conteudo ao panel */
+.panel-content {
     display: flex;
-    flex:column;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-/*add-new-screen*/
-.add-new-screen-card{
+.new-screen-card {
+    width: 100%;
+    max-width: 380px;
+}
+
+.new-screen-card h2 {
+    margin: 0 0 16px;
+    font-size: clamp(18px, 3.5vw, 22px);
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* add-new-screen */
+.add-new-screen-card {
     margin-top: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-}
-.add-new-screen{
+.add-new-screen {
     background-color: var(--primary);
-    border: none;padding: 15px 25px;
-    border-radius: 5px;font-weight: bold;
-}
-.add-new-screen:hover{
-    padding: 16px 26px;
-    background-color: var(--text-color);
-    color: var(--text-color-inverted);
+    color: #111111;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s, color 0.2s, box-shadow 0.2s;
+}
+
+.add-new-screen:hover {
+    background-color: var(--text-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .add-new-screen:active {
-    transform: scale(0.96); 
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); 
-    color: var(--text-color-inverted);
-    opacity: 0.9;
+    transform: scale(0.96);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
 }
 
-/* screeAtributes*/
-.new-screen-card{
-
-}
-
-.screen-atributes{
+/* screenAtributes */
+.screen-atributes {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    gap: 6px;
+    width: 100%;
 }
 
-.scrnAtributesInput{
-    border-radius: 5px;
-    border: 1px solid rgb(0, 0, 0);
+.screen-atributes label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.scrnAtributesInput {
+    border-radius: 6px;
+    border: 1px solid #777;
     text-align: center;
-    background: var(--bg-color);
-    width: 150px;
+    background: #ffffff;
+    width: 100%;
+    max-width: 220px;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
 }
 
-.screen-atributes-numbers{
-    margin-top:15px;
+.scrnAtributesInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(92, 172, 92, 0.25);
+}
+
+.screen-atributes-numbers {
+    margin-top: 18px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-
-    gap: 2%;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
 }
-.san-tittle{
+
+.san-tittle {
     text-align: center;
     flex: 100%;
+    margin-bottom: 6px;
 }
 
-.menus{
-    background-color:#706e6e;
-     width:8px;height: 3px;transform: translateY(15px);}
+.san-tittle label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
 
+.menus {
+    background-color: #706e6e;
+    width: 8px;
+    height: 3px;
+    margin: 0 2px;
+}
 
-     /*input dos digitos*/
+/* input dos digitos */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-
-
-
-.screenDigit{
-    flex: 5%;
-    max-width: 20px;
-    height: 20px;
+.screenDigit {
+    width: 32px;
+    height: 36px;
+    max-width: 36px;
     text-align: center;
-    transform: translateY(5px);
-    background-color: #D2D5D2;
-    border: solid 1px #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 1px 0px 1px #0000005d;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #ffffff;
+    border: solid 1px #bbb;
+    border-radius: 6px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    text-transform: uppercase;
 }
 
+.screenDigit:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(92, 172, 92, 0.3);
+}
 
+/* Telas médias e grandes (Tablets e Desktops) */
+@media (min-width: 600px) {
+    .painel-ttl {
+        max-width: 720px;
+    }
+
+    .painel-cards {
+        max-width: 720px;
+        min-height: 180px;
+    }
+
+    .bottom-panel {
+        left: 50%;
+        transform: translate(-50%, 100%);
+        width: 90%;
+        max-width: 520px;
+        border-radius: 20px;
+        bottom: 24px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .bottom-panel.active {
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Telas Grandes (Desktops e Ultrawide) */
+@media (min-width: 1024px) {
+    .painel {
+        max-width: 960px;
+    }
+
+    .painel-ttl {
+        max-width: 960px;
+        padding: 6px 20px;
+    }
+
+    .painel-cards {
+        max-width: 960px;
+        padding: 24px 20px;
+        min-height: 200px;
+    }
+
+    .painel-screen-card {
+        height: 150px;
+        min-width: 250px;
+        flex: 0 0 250px;
+    }
+}
