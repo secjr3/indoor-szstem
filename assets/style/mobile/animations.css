@@ -61,3 +61,22 @@
     visibility: visible;
     transform: translateX(0);
 }
+
+.shake {
+    border-color: var(--fail);
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    0%, 50% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-1px); }
+    40%, 80% { transform: translateX(1px); }
+}
+
+.valid{
+    border: solid 1px var(--success);
+}
+
+.error{
+    border: solid 1px var(--fail);
+}

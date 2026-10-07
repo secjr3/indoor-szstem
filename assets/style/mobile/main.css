@@ -1,30 +1,4 @@
-/*colors*/
-:root {
-
-    /* BRAND */
-    --primary: #5CAC5C;
-
-    /* BACKGROUND */
-    --bg-color: #dfdfdf;
-    --bg-primary: #8ac28a;
-
-    /* TEXT */
-    --text-color: #111111;
-
-    /* BACKGROUND */
-    --bg-primary: #8AC28A;
-
-    /* SURFACES */
-    --surface: #FFFFFF;
-    --card-bg: #c7c4c450;
-
-    /* TEXT */
-    --text-secondary: #555555;
-    --text-muted: #888888;
-
-    /* BORDER */
-    --border: #E2E5E2;
-}
+@import url(../common/colors.css);
 
 @media (max-width:450px) {
     body {

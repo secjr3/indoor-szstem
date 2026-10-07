@@ -34,22 +34,90 @@
 
     <main>
         <section class="painel">
+            <!-- overlay bottom -->
 
             <div class="painel-ttl">
                 <p style="font-size: 25px;">painel</p>
-                <div class="arrows">
+                
+
+                <button class="openPanelBtn" id="openPanelBtn">
+                    <div class="arrows">
                     <div class="arrow -one"></div>
                     <div class="arrow -two"></div>
+                    </div>
+                </button>
+
+                <div class="overlay active" id="overlay"></div>
+
+                <div class="bottom-panel active" id="bottomPanel">
+                    <div class="panel-handle"></div>
+
+                    
+
+                    <div class="panel-content">
+                        <div class="new-screen-card">
+
+                            <div class="screen-atributes">
+                                <h2>Adicionar nova tela</h2>
+                                <label for="screenName">nome da tela:</label>
+                                <input type="text" class="scrnAtributesInput" id="screenName" placeholder=" ex: tela01">
+                            </div>
+                            <br>
+                            <div class="screen-atributes">
+                                <label for="screenLocation">localização:</label>
+                                <input type="text" class="scrnAtributesInput" id="screenLocation"  placeholder="ex: Recepção" maxlength="5">
+                            </div>
+
+                            <div class="screen-atributes-numbers">
+                                <div class="san-tittle">
+                                    <label for="screenDigit-1">Código de tela</label>
+                                </div>
+                                <div class="scrNumber">
+                                    <input type="text" name="screenDigit-1" class="screenDigit" id="screenDigit-1" maxlength="1">
+                                </div>
+                                <div class="scrNumber">
+                                    <input type="text" class="screenDigit" maxlength="1">
+                                </div>
+                                <div class="scrNumber">
+                                    <input type="text" class="screenDigit" maxlength="1">
+                                </div>
+
+                                <div>
+                                    <div class="menus"></div>
+                                </div>
+
+                                <div class="scrNumber">
+                                    <input type="text" class="screenDigit" maxlength="1">
+                                </div>
+                                <div class="scrNumber">
+                                    <input type="text" class="screenDigit" maxlength="1">
+                                </div>
+                                <div class="scrNumber">
+                                    <input type="text" class="screenDigit" maxlength="1">
+                                </div>
+                            </div>
+
+                            <div class="add-new-screen-card">
+                                <button class="add-new-screen" id="add-new-screen">
+                                    adicionar
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+            <!-- end overlay bottom -->
             </div>
 
             <div class="painel-cards card">
+                <div class="empty-card" style="display: flex; flex: 100%;justify-content: center;align-items: center;">
 
-                <div class="add-screen-card adsc">
-                    <button class="addScreenBtn adsc" id="addScreenBtn">
-                        <span>+</span>
-                        Adicionar
-                    </button>
+                    <div class="add-screen-card empty-card">
+                        <button class="openPanelBtn empty-card">
+                            <span>+</span>
+                            Adicionar
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -61,7 +129,7 @@
 
 
     <!-- scrip modularizado, tem de ter js que puxa js de css-->
-    <script src="style/mobile/style.js"></script>
+    <script type="module" src="style/mobile/scripts/style.js"></script>
 </body>
 
 </html>
