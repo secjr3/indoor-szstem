@@ -1,5 +1,8 @@
+import { createScreen } from "./screens.js"
+
+
 export function automatedInput() {
-    
+
     const inputs = document.querySelectorAll(".screenDigit");
     inputs.forEach((input, index) => {
         input.addEventListener("input", (e) => {
@@ -10,7 +13,7 @@ export function automatedInput() {
             }
             const hasSimbol = /[^a-zA-Z0-9]/.test(input.value);
             if (hasSimbol) {
-                input.value = ""; 
+                input.value = "";
                 input.classList.remove("valid");
                 input.classList.add("shake");
                 input.focus();
@@ -22,7 +25,7 @@ export function automatedInput() {
             if (input.value !== "") {
                 input.classList.remove("shake");
                 input.classList.add("valid");
-                input.value = input.value.toUpperCase(); 
+                input.value = input.value.toUpperCase();
                 if (inputs[index + 1]) {
                     inputs[index + 1].focus();
                 }
@@ -36,11 +39,11 @@ export function automatedInput() {
             }
             if (e.key === "ArrowLeft" && inputs[index - 1]) {
                 inputs[index - 1].focus();
-                e.preventDefault(); 
+                e.preventDefault();
             }
             if (e.key === "ArrowRight" && inputs[index + 1]) {
                 inputs[index + 1].focus();
-                e.preventDefault(); 
+                e.preventDefault();
             }
         });
     });
@@ -61,13 +64,13 @@ export function inputVerifier() {
     screenAtribute.forEach((i) => {
         if (i.value.length < 3) i.placeholder = "3 letras ou mais";
         if (i.value === "") i.placeholder = "campo vazio";
-        
+
         const hasSimbol = /[^a-zA-Z0-9]/.test(i.value);
         if (hasSimbol) {
             i.value = "";
             i.placeholder = "apenas letras e nº";
         }
-        
+
         const ver = (i.value === "" || i.value.length < 3 || hasSimbol);
         if (ver) {
             inputError(i);
@@ -80,9 +83,9 @@ export function inputVerifier() {
         if (ver) {
             hasError = true;
             screenDigit.forEach(e => {
-                    inputError(e)
-                })
-                return
+                inputError(e)
+            })
+            return
         }
     });
 
@@ -90,21 +93,10 @@ export function inputVerifier() {
         // Criar card de tela com sucesso
         const nameInput = document.getElementById("screenName");
         const locInput = document.getElementById("screenLocation");
-        const name = nameInput ? nameInput.value : "Nova Tela";
-        const loc = locInput ? locInput.value : "Local";
-        
-        const cardsContainer = document.querySelector(".painel-cards");
-        if (cardsContainer) {
-            const newCard = document.createElement("div");
-            newCard.classList.add("painel-screen-card", "card");
-            newCard.innerHTML = `
-                <div style="font-weight: bold; font-size: 16px; color: #111;">${name}</div>
-                <div style="font-size: 13px; color: #234;">📍 ${loc}</div>
-                <div style="font-size: 11px; background: rgba(0,0,0,0.1); padding: 4px 8px; border-radius: 4px; display: inline-block; width: fit-content;">● Conectada</div>
-            `;
-            cardsContainer.insertBefore(newCard, cardsContainer.firstChild);
-        }
 
+        createScreen(nameInput,locInput)
+
+     
         // Fechar modal
         const bottomPanel = document.querySelector("#bottomPanel");
         const overlay = document.querySelector("#overlay");
