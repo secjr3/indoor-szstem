@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboar</title>
+    <title>Tela | indoor szstem</title>
+
+    <link rel="stylesheet" href="assets/style/wide/waiterScreen.css">
+
 </head>
+
 <body>
-    
+
+
+
+    <header class="screen-header">
+        <h1>INDOOR SZSTEM</h1>
+    </header>
+
+    <main class="screen-area">
+
+        <div class="screen-status">
+            <span class="status-dot"></span>
+            <div>
+                <strong>tv - 01</strong>
+                <span>offline</span>
+            </div>
+        </div>
+
+        <div class="screen-conection-title">
+            CONECTE-SE A TELA
+        </div>
+        <div class="screen-conection-id">
+            <div class="digitId"></div>
+            <div class="digitId"></div>
+            <div class="digitId"></div>
+            <div class="cArrow"></div>
+            <div class="digitId"></div>
+            <div class="digitId"></div>
+            <div class="digitId"></div>
+        </div>
+
+        <!-- Futuramente:
+             files / playlist / autoplay / preview
+        -->
+        <div class="screen-content">
+            <div class="ps5-glow"></div> <!-- Mantém o brilho suave de fundo -->
+
+            <!-- Ondas Estilo PS3 -->
+
+            <!-- As suas partículas antigas podem continuar aqui em baixo se quiser misturar os efeitos -->
+            <div class="particula p1"></div>
+            <div class="particula p2"></div>
+            <div class="particula p3"></div>
+        </div>
+        
+
+
+    </main>
+    <div class="other-animation"></div>
+
+
+
+
+    <script type="module" src="src/scripts/displays/display.js"></script>
 </body>
-</html> 
+
+</html>
