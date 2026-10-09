@@ -9,7 +9,7 @@ const screen = {
     name: "tv01",
     status: {
         connection:"offline",
-        linked:true,
+        linked:false,
     },
 };
 
@@ -20,13 +20,14 @@ function isConected() {
     return conected
 }
 
-export {isConected}
 
 console.log(supabase);
 
 const { data, error } = await supabase
-    .from("screens")
+    .from("display")
     .select("*");
 
 console.log("Dados:", data);
 console.log("Erro:", error);
+
+export {isConected}
