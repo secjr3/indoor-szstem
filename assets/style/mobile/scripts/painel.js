@@ -1,5 +1,6 @@
 import { createScreen } from "./screens.js"
 import { linkDisplay } from "../../../../src/scripts/displays/ultilty/linkdisplays.js";
+import { overviewCard } from "./pairConfirm.js";
 
 export function automatedInput() {
 
@@ -99,8 +100,9 @@ export async function inputVerifier() {
         const locInput = document.getElementById("screenLocation");
         
 
-        await linkDisplay( connectionCode.id)
+        // await linkDisplay( connectionCode.id)
         createScreen(nameInput, locInput)
+        overviewCard()
 
 
         const bottomPanel = document.querySelector("#bottomPanel");

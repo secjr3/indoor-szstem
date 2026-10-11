@@ -1,9 +1,4 @@
-console.log();
-
-
 import { supabase } from "../lib/supabase.js";
-
-console.log(data);
 
 export async function pairDisplay(code) {
     const normalizedCode = code.trim().toUpperCase();

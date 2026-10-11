@@ -70,6 +70,11 @@ web_modules/
 .env.*
 !.env.example
 
+#cc
+dbscript.txt
+dbstats.js
+
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
@@ -149,4 +154,3 @@ vite.config.ts.timestamp-*
 # Turbo Repo
 .turbo
 
-dbscript.txt
