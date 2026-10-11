@@ -1,9 +1,10 @@
 import { createScreen } from "./screens.js"
-
+import { linkDisplay } from "../../../../src/scripts/displays/ultilty/linkdisplays.js";
 
 export function automatedInput() {
 
     const inputs = document.querySelectorAll(".screenDigit");
+
     inputs.forEach((input, index) => {
         input.addEventListener("input", (e) => {
             if (input.value === "") {
@@ -56,9 +57,13 @@ if (addScreenBtn) {
     };
 }
 
-export function inputVerifier() {
+export async function inputVerifier() {
     const screenAtribute = document.querySelectorAll(".scrnAtributesInput");
     const screenDigit = document.querySelectorAll(".screenDigit");
+    
+    const connectionCode = document.createElement("p")
+    screenDigit.forEach(i => connectionCode.id += `${i.value}`)
+
     let hasError = false;
 
     screenAtribute.forEach((i) => {
@@ -90,20 +95,19 @@ export function inputVerifier() {
     });
 
     if (!hasError) {
-        // Criar card de tela com sucesso
         const nameInput = document.getElementById("screenName");
         const locInput = document.getElementById("screenLocation");
+        
 
-        createScreen(nameInput,locInput)
+        await linkDisplay( connectionCode.id)
+        createScreen(nameInput, locInput)
 
-     
-        // Fechar modal
+
         const bottomPanel = document.querySelector("#bottomPanel");
         const overlay = document.querySelector("#overlay");
         if (bottomPanel) bottomPanel.classList.remove("active");
         if (overlay) overlay.classList.remove("active");
 
-        // Limpar campos
         screenAtribute.forEach(i => i.value = "");
         screenDigit.forEach(i => {
             i.value = "";

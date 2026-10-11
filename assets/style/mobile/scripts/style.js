@@ -1,4 +1,4 @@
-import { automatedInput, inputVerifier } from './painel.js';
+import { automatedInput } from './painel.js';
 
 automatedInput();
 
