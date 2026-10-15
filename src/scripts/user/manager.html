@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Configurar gestor | Indoor szstem</title>
+
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <main class="setup-container">
+
+        <header class="brand-header">
+            <div class="brand-icon">IS</div>
+            <span>INDOOR SZSTEM</span>
+        </header>
+
+        <section class="setup-card">
+
+            <div class="setup-icon">
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.7"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
+                </svg>
+            </div>
+
+            <p class="eyebrow">CONFIGURAÇÃO INICIAL</p>
+
+            <h1>Quem é o gestor?</h1>
+
+            <p class="description">
+                Define o nome que será utilizado para identificar
+                o responsável pela gestão das tuas telas.
+            </p>
+
+            <form id="managerForm">
+
+                <label for="managerName">Nome do gestor</label>
+
+                <input
+                    type="text"
+                    id="managerName"
+                    name="managerName"
+                    placeholder="Ex.: João Silva"
+                    maxlength="60"
+                    autocomplete="name"
+                    required
+                >
+
+                <p class="field-hint">
+                    Podes alterar esta informação posteriormente.
+                </p>
+
+                <button type="submit" id="continueBtn">
+                    Continuar
+                    <span aria-hidden="true">→</span>
+                </button>
+
+                <p id="formMessage" role="status" aria-live="polite"></p>
+
+            </form>
+
+        </section>
+
+        <footer class="setup-footer">
+            Indoor szstem <span>·</span> Gestão de telas
+        </footer>
+
+
+    </main>
+
+    <script type="module" src="assets/addmngr.js" defer></script>
+</body>
+</html>

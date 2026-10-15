@@ -1,4 +1,8 @@
 import { automatedInput } from './painel.js';
+//import { loadScreens } from "./loadScreens.js";
+
+//fazer permanencia das divs do user
+//remover tds comments "//"
 
 automatedInput();
 
@@ -10,7 +14,6 @@ if (menuBtn && menu) {
     menuBtn.addEventListener("click", () => {
         menu.classList.toggle("active");
         const isActive = menu.classList.contains('active')
-        console.log(menu);
 
         if (isActive) {
             overlay.classList.add("active")
@@ -70,3 +73,5 @@ export function removeOverlay(item) {
 
     return overlay
 }
+
+//loadScreens();
