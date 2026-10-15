@@ -1,4 +1,8 @@
 import { automatedInput } from './painel.js';
+//import { loadScreens } from "./loadScreens.js";
+
+//fazer permanencia das divs do user
+//remover tds comments "//"
 
 automatedInput();
 
@@ -10,18 +14,17 @@ if (menuBtn && menu) {
     menuBtn.addEventListener("click", () => {
         menu.classList.toggle("active");
         const isActive = menu.classList.contains('active')
-        console.log(menu);
-        
-        if (isActive){
+
+        if (isActive) {
             overlay.classList.add("active")
             overlay.classList.add("indexMin")
 
-            
+
             menuBtn.classList.add("indexMax")
             menu.classList.add("indexLess")
 
         }
-        if (!isActive)overlay.classList.remove("active")
+        if (!isActive) overlay.classList.remove("active")
     });
 }
 
@@ -32,7 +35,7 @@ const bottomPanel = document.querySelector("#bottomPanel");
 openPanel.forEach(e => {
     e.addEventListener("click", () => {
         if (bottomPanel) bottomPanel.classList.add("active");
-        if (overlay) overlay.classList.add("active");
+        if (overlay) applyOverlay()
         if (overlay) menuBtn.classList.add("indexMin");
     });
 });
@@ -40,10 +43,35 @@ openPanel.forEach(e => {
 if (overlay) {
     overlay.addEventListener("click", () => {
         if (bottomPanel) bottomPanel.classList.remove("active");
-        overlay.classList.remove("active");
-        overlay.classList.remove("indexMax");
+        removeOverlay()
 
-        menu.classList.remove("active")
-        menuBtn.classList.remove("indexMin")
     });
 }
+
+export function applyOverlay(item) {
+    const overlay = document.querySelector(".overlay");
+    overlay.classList.add("active");
+    
+    if(item)item.classList.add("indexMax");
+    
+}
+
+export function removeOverlay(item) {
+    const overlay = document.querySelector(".overlay");
+
+    overlay.classList.remove("active");
+    overlay.classList.remove("indexMax");
+
+    menu.classList.remove("active")
+    menuBtn.classList.remove("indexMin")
+    
+    
+    if(item){
+        item.classList.remove("active")
+        item.classList.remove("selected")
+    }
+
+    return overlay
+}
+
+//loadScreens();

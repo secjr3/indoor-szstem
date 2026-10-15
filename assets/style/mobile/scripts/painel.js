@@ -1,5 +1,6 @@
 import { createScreen } from "./screens.js"
 import { linkDisplay } from "../../../../src/scripts/displays/ultilty/linkdisplays.js";
+import { overviewCard } from "./pairConfirm.js";
 
 export function automatedInput() {
 
@@ -60,7 +61,6 @@ if (addScreenBtn) {
 export async function inputVerifier() {
     const screenAtribute = document.querySelectorAll(".scrnAtributesInput");
     const screenDigit = document.querySelectorAll(".screenDigit");
-    
     const connectionCode = document.createElement("p")
     screenDigit.forEach(i => connectionCode.id += `${i.value}`)
 
@@ -101,6 +101,21 @@ export async function inputVerifier() {
 
         await linkDisplay( connectionCode.id)
         createScreen(nameInput, locInput)
+
+
+        const result = await linkDisplay(
+            connectionCode.id,
+            nameInput.value,
+            locInput.value
+        );
+
+        if (!result.success) {
+            alert(result.message);
+            return;
+        }
+
+        createScreen(nameInput, locInput);
+        overviewCard()
 
 
         const bottomPanel = document.querySelector("#bottomPanel");
