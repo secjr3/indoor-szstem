@@ -35,58 +35,12 @@ topContent.innerHTML =`<div class="screen-icon">TV</div>
     return {topContent,playbackLabel,footerContent}
 }
 
-/*export function createScreen(nameInput, locInput, displayId = null) {
-    const name = typeof nameInput === "string"
-        ? nameInput
-        : nameInput?.value || "Nova Tela";
-
-    const loc = typeof locInput === "string"
-        ? locInput
-        : locInput?.value || "Local";
-
-    const cardsContainer = document.querySelector(".painel-cards");
-
-    if (!cardsContainer) return;
-
-    if (displayId && cardsContainer.querySelector(
-        `[data-display-id="${displayId}"]`
-    )) {
-        return;
-    }
-
-    const { topContent, playbackLabel, footerContent } =
-        createScreenCard(name, loc);
-
-    const newCard = document.createElement("div");
-    newCard.classList.add("screen-card-wrapper");
-
-    if (displayId) {
-        newCard.dataset.displayId = displayId;
-    }
-
-    newCard.innerHTML = `
-        <div class="screen-card" role="button" tabindex="0"
-             aria-pressed="false">
-            <div class="screen-card-top">
-                ${topContent.innerHTML}
-            </div>
-            <div class="screen-card-footer">
-                ${footerContent.innerHTML}
-            </div>
-            <div class="screen-playback">
-                ${playbackLabel.innerHTML}
-            </div>
-        </div>
-    `;
-
-    cardsContainer.appendChild(newCard);
-    closeAddCard()
-}
-*/
-
 function createScreen(nameInput, locInput) {
-    const name = nameInput ? nameInput.value : "Nova Tela";
-    const loc = locInput ? locInput.value : "Local";
+    const name = nameInput;
+    const loc = locInput;
+
+    console.log(name,nameInput);
+
 
     const cardsContainer = document.querySelector(".painel-cards");
     if (cardsContainer) {

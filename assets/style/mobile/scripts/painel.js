@@ -97,11 +97,6 @@ export async function inputVerifier() {
     if (!hasError) {
         const nameInput = document.getElementById("screenName");
         const locInput = document.getElementById("screenLocation");
-        
-
-        await linkDisplay( connectionCode.id)
-        createScreen(nameInput, locInput)
-
 
         const result = await linkDisplay(
             connectionCode.id,
@@ -114,7 +109,7 @@ export async function inputVerifier() {
             return;
         }
 
-        createScreen(nameInput, locInput);
+        createScreen(nameInput.value, locInput.value);
         overviewCard()
 
 

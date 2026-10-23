@@ -3,7 +3,7 @@ import { supabase } from "../lib/supabase.js";
 
 const MANAGER_STORAGE_KEY = "indoor_manager_id";
 
-export async function pairDisplay(code, name, location) {
+export async function pairDisplay(code, name, location) {    
     const normalizedCode = code.trim().toUpperCase();
     const normalizedName = name.trim();
     const normalizedLocation = location.trim();

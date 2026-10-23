@@ -1,7 +1,7 @@
 import { automatedInput } from './painel.js';
-//import { loadScreens } from "./loadScreens.js";
+import { loadScreens } from "./loadScreens.js";
 
-//fazer permanencia das divs do user
+//fazer fazer edicao das cards
 //remover tds comments "//"
 
 automatedInput();
@@ -74,4 +74,4 @@ export function removeOverlay(item) {
     return overlay
 }
 
-//loadScreens();
+await loadScreens();

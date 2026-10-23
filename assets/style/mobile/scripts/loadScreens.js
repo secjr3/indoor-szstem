@@ -23,19 +23,30 @@ export async function loadScreens() {
         .eq("manager_id", managerId)
         .eq("linked", true);
 
+
     if (error) {
         console.error("Erro ao carregar as TVs:", error);
         return;
     }
+    if (!data || data.length === 0) {
+        console.log("Nenhum display encontrado para os critérios fornecidos.");
+        return;
+    }
+    console.log("Displays extraídos com sucesso:", data);
+
 
     cardsContainer.replaceChildren();
 
     for (const display of data) {
+        
         createScreen(
             display.name,
             display.location,
             display.id
         );
+
+        console.log(display.name);
+
     }
 
     overviewCard();
